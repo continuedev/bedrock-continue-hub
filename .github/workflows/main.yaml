@@ -10,7 +10,7 @@ on:
       - .github/workflows/main.yaml
 
 env:
-  OWNER_SLUG: aws
+  OWNER_SLUG: bedrock
 
 jobs:
   publish:
