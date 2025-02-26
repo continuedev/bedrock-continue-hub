@@ -1,0 +1,13 @@
+name: Cohere Embed Multilingual v3
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Cohere Embed Multilingual v3
+    provider: bedrock
+    model: cohere.embed-multilingual-v3
+    env:
+      region: ${{ inputs.BEDROCK_AWS_REGION }}
+      profile: ${{ inputs.BEDROCK_AWS_PROFILE }}
+    roles:
+      - embed
