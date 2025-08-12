@@ -1,0 +1,15 @@
+name: Claude 3 Sonnet
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Claude 3 Sonnet
+    provider: bedrock
+    model: anthropic.claude-3-sonnet-20240229-v1:0
+    env:
+      region: ${{ inputs.BEDROCK_AWS_REGION }}
+      profile: ${{ inputs.BEDROCK_AWS_PROFILE }}
+    roles:
+      - chat
+      - apply
+      - edit
