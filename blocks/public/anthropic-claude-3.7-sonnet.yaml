@@ -1,5 +1,5 @@
 name: Claude 3.7 Sonnet
-version: 1.0.0
+version: 1.0.3
 schema: v1
 
 models:
@@ -13,3 +13,5 @@ models:
       - chat
       - apply
       - edit
+    capabilities:
+      - tool_use
