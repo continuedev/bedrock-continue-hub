@@ -1,0 +1,19 @@
+name: claude v2:1:18k
+version: 1.0.4
+schema: v1
+
+models:
+  - name: claude v2:1:18k
+    provider: bedrock
+    model: anthropic.claude-v2:1:18k
+    env:
+      region: ${{ inputs.BEDROCK_AWS_REGION }}
+      profile: ${{ inputs.BEDROCK_AWS_PROFILE }}
+    roles:
+      - chat
+      - apply
+      - edit
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 18000
