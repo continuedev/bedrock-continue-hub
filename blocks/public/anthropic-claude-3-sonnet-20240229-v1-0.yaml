@@ -1,9 +1,9 @@
-name: Claude 3 Sonnet
-version: 1.0.1
+name: claude 3 sonnet 20240229 v1:0
+version: 1.0.3
 schema: v1
 
 models:
-  - name: Claude 3 Sonnet
+  - name: claude 3 sonnet 20240229 v1:0
     provider: bedrock
     model: anthropic.claude-3-sonnet-20240229-v1:0
     env:

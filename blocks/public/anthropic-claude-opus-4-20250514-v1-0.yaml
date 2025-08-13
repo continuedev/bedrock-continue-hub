@@ -1,11 +1,11 @@
-name: Claude 3 Sonnet
-version: 1.0.1
+name: claude opus 4 20250514 v1:0
+version: 1.0.3
 schema: v1
 
 models:
-  - name: Claude 3 Sonnet
+  - name: claude opus 4 20250514 v1:0
     provider: bedrock
-    model: anthropic.claude-3-sonnet-20240229-v1:0
+    model: anthropic.claude-opus-4-20250514-v1:0
     env:
       region: ${{ inputs.BEDROCK_AWS_REGION }}
       profile: ${{ inputs.BEDROCK_AWS_PROFILE }}

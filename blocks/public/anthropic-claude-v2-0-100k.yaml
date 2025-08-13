@@ -1,11 +1,11 @@
-name: Claude 3 Sonnet
-version: 1.0.1
+name: claude v2:0:100k
+version: 1.0.4
 schema: v1
 
 models:
-  - name: Claude 3 Sonnet
+  - name: claude v2:0:100k
     provider: bedrock
-    model: anthropic.claude-3-sonnet-20240229-v1:0
+    model: anthropic.claude-v2:0:100k
     env:
       region: ${{ inputs.BEDROCK_AWS_REGION }}
       profile: ${{ inputs.BEDROCK_AWS_PROFILE }}
@@ -15,3 +15,5 @@ models:
       - edit
     capabilities:
       - tool_use
+    defaultCompletionOptions:
+      contextLength: 100000
