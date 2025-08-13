@@ -108,11 +108,32 @@ else
     )
 fi
 
+# Function to check if model ID already exists in any file
+model_id_exists() {
+    local model_id="$1"
+    # Check if any existing YAML file contains this model ID
+    for yaml_file in blocks/public/*.yaml; do
+        if [[ -f "$yaml_file" ]] && grep -q "model: $model_id" "$yaml_file" 2>/dev/null; then
+            return 0  # Model ID exists
+        fi
+    done
+    return 1  # Model ID doesn't exist
+}
+
 # Find missing models
 missing_models=()
 for model in "${expected_models[@]}"; do
     if ! echo "$existing_files" | grep -q "^${model}$"; then
-        missing_models+=("$model")
+        # Also check if the actual model ID already exists in another file
+        model_info=$(get_model_details "$model")
+        if [[ -n "$model_info" ]]; then
+            IFS='|' read -r model_name model_id supports_tools context_length <<< "$model_info"
+            if ! model_id_exists "$model_id"; then
+                missing_models+=("$model")
+            else
+                echo "⏭️  Skipping $model - model ID $model_id already exists in another file"
+            fi
+        fi
     fi
 done
 
